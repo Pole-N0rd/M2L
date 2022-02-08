@@ -14,7 +14,6 @@
     <nav class="menu" role="navigation">
         <div class="inner">
             <div class="m-left">
-    
                 <a href="#" class="m-link">Accueil</a>
                 <a href="#" class="m-link">FAQ</a>
             </div>
@@ -23,9 +22,15 @@
                 <a href="#" class="m-link">S'inscrire</a>
             </div>
     </nav>
-    <div class="box">
-  I'm in a box.
-</div>
 </header>
+   <figure class="image is-3by1">
+  <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fpixabay.com%2Ffr%2Fphotos%2Fcontexte-arri%25C3%25A8re-plan-site-internet-2691002%2F&psig=AOvVaw0LEq-7WCCsp0UxWwuYTyMl&ust=1644418917823000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCNDl3oCw8PUCFQAAAAAdAAAAABAJ">
+</figure>
+<label for="story"></label>
+
+<textarea id="story" name="story" 
+          rows="10" cols="310"disabled>
+Les information a propos de la M2L
+</textarea>
 </body>
 </html>
