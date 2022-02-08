@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/fond.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <title>Maison des Ligues</title>
 </head>
 <body>
@@ -13,6 +14,7 @@
     <nav class="menu" role="navigation">
         <div class="inner">
             <div class="m-left">
+    
                 <a href="#" class="m-link">Accueil</a>
                 <a href="#" class="m-link">FAQ</a>
             </div>
@@ -21,7 +23,9 @@
                 <a href="#" class="m-link">S'inscrire</a>
             </div>
     </nav>
-    <nav P class="blocktext"></nav>
+    <div class="box">
+  I'm in a box.
+</div>
 </header>
 </body>
 </html>
