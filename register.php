@@ -9,19 +9,9 @@
     <title>Inscription</title>
 </head>
 <body>
-    <header role="header">
-        <nav class="menu" role="navigation">
-            <div class="inner">
-                <div class="m-left">
-                    <a href="#" class="m-link">Accueil</a>
-                    <a href="#" class="m-link">FAQ</a>
-                </div>
-                <div class="m-right">
-                    <a href="#" class="m-link">Se connecter</a>
-                    <a href="#" class="m-link">S'inscrire</a>
-                </div>
-        </nav>
-    </header>
+    <?php
+        require("header.php")
+    ?>
     <h1 class="title">Inscription</h1>
     <form action="index.php">
         <div class="field">

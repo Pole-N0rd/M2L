@@ -10,27 +10,17 @@
     <title>Maison des Ligues</title>
 </head>
 <body>
-<header role="header">
-    <nav class="menu" role="navigation">
-        <div class="inner">
-            <div class="m-left">
-                <a href="#" class="m-link">Accueil</a>
-                <a href="ajoutfaq.php" class="m-link">FAQ</a>
-            </div>
-            <div class="m-right">
-                <a href="#" class="m-link">Se connecter</a>
-                <a href="#" class="m-link">S'inscrire</a>
-            </div>
-    </nav>
-</header>
-   <figure class="image is-3by1">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgF-Hs-6YSQIsVERUN9FMKXmVbdfyjrZSUw&usqp=CAU">
-</figure>
-<label for="story"></label>
+    <?php
+        require("header.php")
+    ?>
+    <figure class="image is-3by1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgF-Hs-6YSQIsVERUN9FMKXmVbdfyjrZSUw&usqp=CAU">
+    </figure>
+    <label for="story"></label>
 
-<textarea id="story" name="story" 
-          rows="10" cols="310"disabled>
-Les informations à propos de la M2L
-</textarea>
+    <textarea id="story" name="story" 
+            rows="10" cols="310"disabled>
+    Les informations à propos de la M2L
+    </textarea>
 </body>
 </html>
