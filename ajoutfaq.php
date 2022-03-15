@@ -25,7 +25,7 @@
     <FONT size="6pt"><p>Ajouter</p></FONT>
     <form class="box">
   <div class="field">
-    <label class="label">Question</label>
+    <label class="label">Questions</label>
     <div class="control">
       <input class="input" type="question" placeholder="Question">
     </div>

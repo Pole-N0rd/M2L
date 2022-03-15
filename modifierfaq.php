@@ -15,22 +15,29 @@
         <div class="inner">
             <div class="m-left">
                 <a href="#" class="m-link">Accueil</a>
-                <a href="ajoutfaq.php" class="m-link">FAQ</a>
+                <a href="#" class="m-link">FAQ</a>
             </div>
             <div class="m-right">
-                <a href="#" class="m-link">Se connecter</a>
-                <a href="#" class="m-link">S'inscrire</a>
+                <a href="index.php" class="m-link">deconnexion</a>
             </div>
     </nav>
-</header>
-   <figure class="image is-3by1">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgF-Hs-6YSQIsVERUN9FMKXmVbdfyjrZSUw&usqp=CAU">
-</figure>
-<label for="story"></label>
+    <FONT size="10pt"><p>Foire aux questions</p></FONT>
+    <FONT size="6pt"><p>Modifier</p></FONT>
+    <form class="box">
+  <div class="field">
+    <label class="label">Questions</label>
+    <div class="control">
+      <input class="input" type="question" placeholder="Question">
+    </div>
+  </div>
 
-<textarea id="story" name="story" 
-          rows="10" cols="310"disabled>
-Les informations à propos de la M2L
+  <textarea id="story" name="story" 
+          rows="10" cols="301">
+Question à poser
 </textarea>
+  </div>
+
+  <button <a href="#" class="button is-success">Modifier</button>
+</form>
 </body>
-</html>
+</header>
