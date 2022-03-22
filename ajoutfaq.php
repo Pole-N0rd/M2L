@@ -1,3 +1,12 @@
+<?php
+
+$dsn = 'mysql:host=127.0.0.1;dbname=m2l-g1;
+
+port=3306;charset=UTF-8';
+
+$pdo = new PDO($dsn, '' , '');
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,11 +23,11 @@
     <nav class="menu" role="navigation">
         <div class="inner">
             <div class="m-left">
-                <a href="#" class="m-link">Accueil</a>
+                <a href="index.php" class="m-link">Accueil</a>
                 <a href="#" class="m-link">FAQ</a>
             </div>
             <div class="m-right">
-                <a href="index.php" class="m-link">deconnexion</a>
+                <a href="#" class="m-link">deconnexion</a>
             </div>
     </nav>
     <FONT size="10pt"><p>Foire aux questions</p></FONT>
