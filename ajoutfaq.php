@@ -4,7 +4,7 @@ $dsn = 'mysql:host=127.0.0.1;dbname=m2l-g1;
 
 port=3306;charset=UTF-8';
 
-$pdo = new PDO($dsn, '' , '');
+$pdo = new PDO($dsn, 'root' , '');
 ?>
 
 <!DOCTYPE html>
