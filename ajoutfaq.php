@@ -1,10 +1,41 @@
+
 <?php
+$dsn = 'mysql:host=localhost;dbname=m2l-g1'; // contient le nom du serveur et de la base
+$user = 'root';
+$password = '';
+try {
+$dbh = new PDO($dsn, $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND =>
+"SET NAMES utf8"));
+$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+return $dbh;
+} catch (PDOException $ex) {
+die("Erreur lors de la connexion SQL : " . $ex->getMessage());
+}
+include 
 
-$dsn = 'mysql:host=127.0.0.1;dbname=m2l-g1;
+$dbh=db_connect();
+$idfaq = isset($_POST['idfaq']) ? $_POST['idfaq'] :'';
+$libelle_question= isset($_POST['libelle_question']) ? $_POST['libelle_question'] :'';
+$date_question = isset($_POST['date_question']) ? $_POST['date_question'] :'';
+$libelle_reponse = isset($_POST['libelle_reponse']) ? $_POST['libelle_reponse'] :'';
+$date_reponse = isset($_POST['date_reponse']) ? $_POST['date_reponse'] :'';
+$idutilisateur = isset($_POST['idutilisateur']) ? $_POST['idutilisateur'] :'';
+$submit = isset($_POST['submit']);
 
-port=3306;charset=UTF-8';
 
-$pdo = new PDO($dsn, 'root' , '');
+if ($submit) {
+  $sql="insert into personnes (idfaq, libelle_question, date_question, libelle_reponse, date_reponse, idutilisateur) values (:idfaq,;libelle_question,:date_question,:libelle_reponse,:date_reponse,:idutilisateur)";
+  try {
+    $sth = $dbh->prepare($sql);
+    $sth->execute(aray(":idfaq"=>$idfaq,":libelle_question"=>$libelle_question,":date_question"=>$date_question,":libelle_reponse"=>$libelle_reponse,":date_reponse"=>$date_reponse,":idutilisateur"=>$idutilisateur));
+    $nb = $sth->rowcount();
+  } catch (PDOException $e) {
+    die( "<p>Erreur lors de la requete SQL : " . $e->getMessage() . "</p>");
+  }
+  $message="$nb personne(s) créée(s)";
+} else {
+  $message="Veuillez saisir une personne SVP";
+}
 ?>
 
 <!DOCTYPE html>
