@@ -6,8 +6,15 @@
                 <a href="ajoutfaq.php" class="m-link">FAQ</a>
             </div>
             <div class="m-right">
-                <a href="#" class="m-link">Se connecter</a>
-                <a href="#" class="m-link">S'inscrire</a>
+                <?php
+                if(isset($_SESSION['username'])) {
+                    echo "<a href='#' class='m-link'>Mon compte</a>";
+                    echo "<a href='disconnect.php' class='m-link'>Se déconnecter</a>";
+                } else {
+                    echo "<a href='login.php' class='m-link'>Se connecter</a>";
+                    echo "<a href='register.php' class='m-link'>S'inscrire</a>";
+                }
+                ?>
             </div>
     </nav>
 </header>

@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,7 +14,7 @@
 </head>
 <body>
     <?php
-        require("header.php")
+        require("header.php");
     ?>
     <figure class="image is-3by1">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIgF-Hs-6YSQIsVERUN9FMKXmVbdfyjrZSUw&usqp=CAU">
