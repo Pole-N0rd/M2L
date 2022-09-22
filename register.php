@@ -38,6 +38,11 @@
     ?>
     <h1 class="title">Inscription</h1>
     <?php
+        print $username;
+        print $password;
+        print $mail;
+        print $ligue;
+        print $submit;
         if(isset($_SESSION['username'])) {
             echo '<p>Vous êtes connecté ' .$_SESSION['username']. '<.p>';
             echo '<p>Accéder à la page <a href="index.php"Page d\'Accueil</a></p>';
@@ -47,31 +52,31 @@
         <div class="field">
             <label class="label" for="pseudo">Pseudo</label>
             <div class="control">
-                <input class="input" type="text" id='pseudo' name='username' placeholder="Entrer votre identifiant" required="required">
+                <input class="input" type="text" id='pseudo' name='username' placeholder="Entrer votre identifiant" required>
             </div>
         </div>
         <div>
             <label class="label" for="mdp">Mot de passe</label>
             <div class="control">
-                <input class="input" type="password" id='mdp' name='mdp_user' placeholder="Entrer un mot de passe" required="required">
+                <input class="input" type="password" id='mdp' name='mdp_user' placeholder="Entrer un mot de passe" required>
             </div>
         </div>
         <div>
             <label class="label" for="confirm_mdp">Confirmer mot de passe</label>
             <div class="control">
-                <input class="input" type="password" placeholder="Confirmer votre mot de passe" required="required">
+                <input class="input" type="password" placeholder="Confirmer votre mot de passe" required>
             </div>
         </div>
         <div>
             <label class="label" for="mail">Mail</label>
             <div class="control">
-                <input class="input" type="email" id='email' name="mail" placeholder="Entrer votre mail" required="required">
+                <input class="input" type="email" id='email' name="mail" placeholder="Entrer votre mail" required>
             </div>
         </div>
         <div>
             <label class="label" for="ligue-select">Ligue</label>
             <div class="select">
-                <select name="ligue" id="ligue-select" required="required">
+                <select name="ligue" id="ligue-select" required>
                     <option value="">Choisissez une ligue</option>
                     <option value="athlétisme">Athlétisme</option>
                     <option value="football">Football</option>
@@ -83,7 +88,7 @@
         </div>
         <div>
             <a href="">Condition générale d'utilisation
-                <input type="checkbox" name="CGU" id="CGU_agree" required="required">
+                <input type="checkbox" name="CGU" id="CGU_agree" required>
             </a>
             <div style="text-align: right; margin-right : 5%;">
                 <input type="submit" name="submit" value="Inscription">

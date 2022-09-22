@@ -1,3 +1,26 @@
+<?php
+    require("connectionBdd.php");
+    
+    $username = isset($_POST['username']) ? $_POST['username'] : '';
+    $password = isset($_POST['mdp_user']) ? $_POST['mdp_user'] : '';
+    $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
+
+    if($submit) {
+        $sql ="select idFaq, libelle_question, date_question, libelle_reponse, date_reponse from faq";
+        try {
+            $sth = $dbh->prepare($sql);
+            $sth->execute(array(':pseudo' => $username, ':mdp' => $password));
+            $row = $sth->fetch(PDO::FETCH_ASSOC);
+        } catch(Exception $e) {
+            echo "<p>" .$e->getMessage(). "</p>";
+        }
+        if(isset($row)) {
+            $_SESSION['username'] = $username;
+            $_SESSION['idUser'] = $row["idUtilisateur"];
+            header("location: index.php");
+        }
+    }
+?>
 <!DOCTYPE html>
 <html lang="fr">
 

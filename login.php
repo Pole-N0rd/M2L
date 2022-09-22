@@ -1,4 +1,3 @@
-
 <?php
     session_start();
     require("connectionBdd.php");
@@ -8,16 +7,17 @@
     $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
 
     if($submit) {
-        $sql ="select pseudo_utilisateur, mdp_utilisateur from utilisateur where pseudo_utilisateur = :pseudo and mdp_utilisateur = :mdp";
+        $sql ="select pseudo_utilisateur, mdp_utilisateur, idUtilisateur from utilisateur where pseudo_utilisateur = :pseudo and mdp_utilisateur = :mdp";
         try {
             $sth = $dbh->prepare($sql);
             $sth->execute(array(':pseudo' => $username, ':mdp' => $password));
-            $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+            $row = $sth->fetch(PDO::FETCH_ASSOC);
         } catch(Exception $e) {
             echo "<p>" .$e->getMessage(). "</p>";
         }
-        if(count($rows) == 1) {
+        if(isset($row)) {
             $_SESSION['username'] = $username;
+            $_SESSION['idUser'] = $row["idUtilisateur"];
             header("location: index.php");
         }
     }
