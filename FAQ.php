@@ -1,24 +1,15 @@
 <?php
     require("connectionBdd.php");
-    
-    $username = isset($_POST['username']) ? $_POST['username'] : '';
-    $password = isset($_POST['mdp_user']) ? $_POST['mdp_user'] : '';
-    $submit = isset($_POST['submit']) ? $_POST['submit'] : '';
 
-    if($submit) {
-        $sql ="select idFaq, libelle_question, date_question, libelle_reponse, date_reponse from faq";
-        try {
-            $sth = $dbh->prepare($sql);
-            $sth->execute(array(':pseudo' => $username, ':mdp' => $password));
-            $row = $sth->fetch(PDO::FETCH_ASSOC);
-        } catch(Exception $e) {
-            echo "<p>" .$e->getMessage(). "</p>";
-        }
-        if(isset($row)) {
-            $_SESSION['username'] = $username;
-            $_SESSION['idUser'] = $row["idUtilisateur"];
-            header("location: index.php");
-        }
+    $sql ="select idFaq, libelle_question, date_question, libelle_reponse, date_reponse, pseudo_utilisateur 
+    from faq, utilisateur
+    where faq.idUtilisateur = utilisateur.idUtilisateur";
+    try {
+        $sth = $dbh->prepare($sql);
+        $sth->execute();
+        $rows = $sth->fetchAll(PDO::FETCH_ASSOC);
+    } catch(Exception $e) {
+        die("<p>" .$e->getMessage(). "</p>");
     }
 ?>
 <!DOCTYPE html>
@@ -50,28 +41,19 @@
         <div class="row">
             <div class="col-md-6 offset-md-3">
                 <ul class="timeline">
-                    <li>
-                        <a target="_blank">Emilio Dingo</a></br>
-                        <a class="Date">21 March, 2020</a></br></br>
-                        <a class="Question"> Nam pellentesque felis vitae justo accumsan ?</a></br></br>
-                        <a class="Reponse">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
-                            <p><a href="modifierfaq.php">Modifier</a>&nbsp;<a href="supprimerfaq.php">Supprimer</a></p>
-                    </li>
-                    <li>
-                        <a target="_blank">papan la fripouille</a></br>
-                        <a class="Date">21 March, 2020</a></br></br>
-                        <a class="Question"> Nam pellentesque felis vitae justo accumsan ?</a></br></br>
-                        <a class="Reponse">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
-                            <p><a href="modifierfaq.php">Modifier</a>&nbsp;<a href="supprimerfaq.php">Supprimer</a></p>
-                    </li>
-                    <li>
-                        <a target="_blank">JeSuis</a></br>
-                        <a class="Date">21 March, 2020</a></br></br>
-                        <a class="Question"> Nam pellentesque felis vitae justo accumsan ?</a></br></br>
-                        <a class="Reponse">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque diam non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis sagittis ligula in sodales vehicula....</p>
-                            <p><a href="modifierfaq.php">Modifier</a>&nbsp;<a href="supprimerfaq.php">Supprimer</a></p>
-
-                    </li>
+                    <?php 
+                        foreach($rows as $row) {
+                            $date_question = $row["date_question"] == "NULL" ? "Aucune date" : $row["date_question"];
+                            $response = $row["libelle_reponse"] == "NULL" ? "Aucune réponse pour le moment" : $row["libelle_reponse"];
+                            echo "<li>";
+                            echo "<p>" .$row["pseudo_utilisateur"]. "</p>";
+                            echo "<p>" .$date_question. "</p></br>";
+                            echo "<p>" .$row["libelle_question"]. "</p></br>";
+                            echo "<p>" .$response. "</p></br>";
+                            echo "<p><a href='modifierfaq.php'>Modifier</a>&nbsp;<a href='supprimerfaq.php'>Supprimer</a></p>";
+                            echo "</li>";
+                        }
+                    ?>
                 </ul>
             </div>
         </div>
