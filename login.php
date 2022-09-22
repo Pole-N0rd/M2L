@@ -15,7 +15,7 @@
         } catch(Exception $e) {
             echo "<p>" .$e->getMessage(). "</p>";
         }
-        if(isset($row)) {
+        if($sth->rowCount()) {
             $_SESSION['username'] = $username;
             $_SESSION['idUser'] = $row["idUtilisateur"];
             header("location: index.php");

@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require("connectionBdd.php");
 
     $sql ="select idFaq, libelle_question, date_question, libelle_reponse, date_reponse, pseudo_utilisateur 

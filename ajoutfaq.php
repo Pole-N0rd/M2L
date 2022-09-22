@@ -42,24 +42,14 @@ if ($submit) {
     <title>Maison des Ligues</title>
 </head>
 <body>
-<header role="header">
-    <nav class="menu" role="navigation">
-        <div class="inner">
-            <div class="m-left">
-                <a href="index.php" class="m-link">Accueil</a>
-                <a href="#" class="m-link">FAQ</a>
-            </div>
-            <div class="m-right">
-                <a href="#" class="m-link">deconnexion</a>
-            </div>
-        </div>
-    </nav>
-    <h1>Foire aux questions</h1>
-    <h2>Ajouter</h2>
-    <form class="box" action="ajoutfaq.php" method="post">
-      <input class="input" type="question" name="libelle_question" placeholder="Question" required>
-      <textarea id="story" name="libelle_reponse" placeholder="Entrez votre réponse ici" rows="10" cols="301"></textarea>
-      <input type="submit" name="submit" value="Ajouter la question">
-    </form>
+  <?php
+    require("header.php")
+  ?>
+  <h1>Foire aux questions</h1>
+  <h2>Ajouter</h2>
+  <form class="box" action="ajoutfaq.php" method="post">
+    <input class="input" type="question" name="libelle_question" placeholder="Question" required>
+    <textarea id="story" name="libelle_reponse" placeholder="Entrez votre réponse ici" rows="10" cols="301"></textarea>
+    <input type="submit" name="submit" value="Ajouter la question">
+  </form>
 </body>
-</header>
